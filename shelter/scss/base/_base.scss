@@ -1,0 +1,22 @@
+:root {
+  box-sizing: border-box;
+}
+
+// * {
+//     &::before, &::after {
+//         box-sizing: inherit;
+//     }
+// }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: monospace;
+  font-weight: 100;
+  background: red;
+}
