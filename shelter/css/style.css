@@ -939,7 +939,6 @@ header a {
   gap: 30px;
 }
 .main-body .donation img {
-  margin-top: 11px;
   max-width: 100%;
   object-fit: cover;
 }
