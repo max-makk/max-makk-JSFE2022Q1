@@ -1,0 +1,42 @@
+@use "../abstracts" as *;
+
+.footer {
+  background: $footer-gradient-background;
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    .contacts-list {
+      margin-top: 16px;
+      max-width: 280px;
+      a {
+        margin-top: 40px;
+      }
+    }
+
+    .locations-list {
+      margin-top: 16px;
+      max-width: 302px;
+      a {
+        margin-top: 33px;
+      }
+    }
+
+    h3 {
+      color: $color-light-xl;
+    }
+    a {
+      display: flex;
+      align-items: center;
+
+      h4 {
+        margin-left: 20px;
+        color: $color-primary;
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+}

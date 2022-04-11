@@ -1,0 +1,103 @@
+@use "../abstracts" as *;
+
+.header {
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    .logo {
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .subtitle {
+        margin-left: 4px;
+      }
+    }
+
+    ul {
+      margin-bottom: 4px;
+      display: flex;
+
+      li {
+        margin-left: 36px;
+
+        a {
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 3px;
+            bottom: -7px;
+            left: 0;
+            background-color: $color-primary;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+          }
+        }
+
+        a.active::before {
+          color: $color-light-s;
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+/*
+.header {
+  &-inner {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .subtitle {
+    margin-left: 4px;
+    margin-top: 10px;
+  }
+  }
+
+  .nav {
+    margin-bottom: 4px;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    li {
+      margin-left: 36px;
+    }
+  }
+
+  a {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
+      bottom: -6px;
+      left: 0;
+      background-color: $color-primary;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  a.active::before {
+    transform: scaleX(1);
+  }
+}
+
+*/

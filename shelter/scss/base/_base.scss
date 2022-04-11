@@ -1,22 +1,28 @@
+@use "../abstracts/variables" as *;
+
 :root {
   box-sizing: border-box;
 }
 
-// * {
-//     &::before, &::after {
-//         box-sizing: inherit;
-//     }
-// }
-
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  min-height: 100vh;
-  font-family: monospace;
-  font-weight: 100;
-  background: red;
+.container {
+  max-width: 1280px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style-type: none;
 }

@@ -1,0 +1,64 @@
+@use "../abstracts" as *;
+@use "../base" as *;
+
+.pets-body {
+  background-color: $color-light-l;
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $color-light-xl;
+    padding: 30px 0;
+    .title {
+      color: $color-dark-l;
+    }
+    .subtitle {
+      color: $color-dark-3xl;
+    }
+
+    nav {
+      a {
+        color: $color-dark-l;
+        &:hover {
+          color: $color-dark-3xl;
+        }
+        &.active {
+          color: $color-dark-l;
+        }
+      }
+    }
+  }
+  .pets {
+    margin-top: 120px;
+  }
+  .pets-inner {
+    padding-top: 80px;
+    padding-bottom: 100px;
+    color: $color-light-l;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h3 {
+      text-align: center;
+      max-height: 90px;
+    }
+    .cards {
+      margin-top: 45px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 15px 0;
+      gap: 30px 40px;
+    }
+
+    .page-list {
+      margin-top: 45px;
+      width: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
