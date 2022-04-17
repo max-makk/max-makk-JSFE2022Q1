@@ -586,6 +586,7 @@ nav a {
 }
 .header .nav {
   display: none;
+  margin-bottom: 4px;
 }
 .header ul {
   display: flex;
