@@ -1,5 +1,56 @@
 @use "../abstracts" as *;
 
+.button {
+  border: 2px solid $color-primary;
+  height: 52px;
+  cursor: pointer;
+  display: block;
+  border-radius: 100px;
+  @include flex-center;
+
+  &-primary {
+    width: 207px;
+    @include button-bg($color-primary);
+    &-large {
+      width: 260px;
+      @include button-bg($color-primary);
+    }
+  }
+  &-secondary {
+    width: 187px;
+    @include button-bg(transparent);
+  }
+  &-round {
+    width: 52px;
+    @include button-bg(transparent);
+  }
+
+  &.right {
+    @include button-bg(transparent);
+    transform: rotate(180deg);
+  }
+  &.left {
+    @include button-bg(transparent);
+  }
+
+  &.inactive {
+    cursor: unset;
+    border: 2px solid $color-dark-s;
+    color: $color-dark-s;
+    background-color: transparent;
+  }
+  &.page {
+    background-color: $color-primary;
+    cursor: unset;
+    &:hover {
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+}
+
+/* 
+
 .btn {
   border: none;
   border-radius: 100px;
@@ -59,3 +110,4 @@
     }
   }
 }
+ */

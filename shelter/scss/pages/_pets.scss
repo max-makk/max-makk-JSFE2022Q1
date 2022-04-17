@@ -2,20 +2,13 @@
 @use "../base" as *;
 
 .pets-body {
-  background-color: $color-light-l;
   .header {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: $color-light-xl;
-    padding: 30px 0;
-    .title {
-      color: $color-dark-l;
-    }
-    .subtitle {
-      color: $color-dark-3xl;
-    }
-
+    padding-top: 30px;
+    padding-bottom: 30px;
     nav {
       a {
         color: $color-dark-l;
@@ -28,37 +21,73 @@
       }
     }
   }
+
   .pets {
     margin-top: 120px;
-  }
-  .pets-inner {
-    padding-top: 80px;
-    padding-bottom: 100px;
-    color: $color-light-l;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
+    background-color: $color-light-l;
+    .container {
+      padding-top: 42px;
+      padding-bottom: 42px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include tablet {
+        padding-top: 80px;
+        padding-bottom: 75px;
+      }
+      @include desktop {
+        padding-bottom: 100px;
+      }
+    }
     h3 {
       text-align: center;
-      max-height: 90px;
     }
     .cards {
-      margin-top: 45px;
-      display: flex;
+      padding-top: 42px;
+      @include flex-center;
       flex-wrap: wrap;
-      justify-content: center;
-      padding: 15px 0;
-      gap: 30px 40px;
+      flex-direction: column;
+      gap: 30px;
+      @include tablet {
+        flex-direction: row;
+        padding-top: 30px;
+        gap: 30px 40px;
+      }
+      @include desktop {
+        margin-top: 45px;
+        padding: 15px 0;
+        gap: 30px 40px;
+      }
     }
 
-    .page-list {
-      margin-top: 45px;
+    .card {
+      &:nth-child(n + 4) {
+        display: none;
+      }
+      @include tablet {
+        &:nth-child(n) {
+          display: flex;
+        }
+        &:nth-child(n + 7) {
+          display: none;
+        }
+      }
+      @include desktop {
+        &:nth-child(n) {
+          display: flex;
+        }
+      }
+    }
+
+    .pagination {
+      margin-top: 40px;
       width: 340px;
+      max-width: 100%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      @include desktop {
+        margin-top: 45px;
+      }
     }
   }
 }

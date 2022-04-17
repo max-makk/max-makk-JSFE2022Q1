@@ -1,18 +1,17 @@
 @use "../abstracts" as *;
-@use "../base" as *;
 
 .main-body {
   background: $start-screen-gradient-background;
-  min-height: 100vh;
-  .header {
-    padding: 60px 0;
-    .title {
-      color: $color-primary;
-    }
-    .subtitle {
-      color: $color-light-xl;
-    }
 
+  position: relative;
+  .header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    @include desktop {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
     nav {
       a {
         color: $color-dark-s;
@@ -25,170 +24,334 @@
       }
     }
   }
-  // ******************************************** hero
+
   .hero {
-    &-inner {
+    .container {
       display: flex;
-      justify-content: space-between;
-    }
-    img {
-      object-fit: contain;
-      object-position: bottom right;
-      max-width: 60%;
-    }
-
-    &-text {
-      max-width: 460px;
-      padding-top: 163px;
-    }
-
-    h2 {
-      max-width: 310px;
-    }
-
-    p {
-      margin-top: 42px;
-      color: $color-dark-s;
-    }
-    a {
-      margin-top: 42px;
-    }
-  }
-
-  // ******************************************** about
-  .about {
-    background-color: $color-light-xl;
-    &-inner {
-      padding-top: 80px;
-      padding-bottom: 100px;
-      @include flex-center;
-      gap: 120px;
-    }
-    img {
-      object-fit: cover;
-      height: 100%;
-      max-width: 100%;
-    }
-
-    &-text {
-      h3 {
-        max-width: 370px;
-      }
-      max-width: 430px;
-      & * + * {
-        margin-top: 24px;
-      }
-    }
-  }
-
-  .pets {
-    background-color: $color-light-l;
-    .pets-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
-      padding-top: 80px;
-      padding-bottom: 100px;
+      align-items: center;
+      padding-top: 30px;
+
+      @include desktop {
+        flex-direction: row;
+        padding-top: 0;
+      }
+    }
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 105px;
+      text-align: center;
+      h2 {
+        padding: 0 20px;
+        max-width: 300px;
+      }
+      max-width: 460px;
+      * + * {
+        margin-top: 42px;
+      }
+      @include tablet {
+        padding-bottom: 100px;
+        h2 {
+          padding: 0;
+          max-width: 310px;
+        }
+        .button {
+          align-self: center;
+        }
+        align-items: start;
+        text-align: unset;
+      }
+      @include desktop {
+        padding-top: 20px;
+        .button {
+          align-self: unset;
+        }
+      }
+      p {
+        color: $color-dark-s;
+      }
+    }
+
+    &-img {
+      @include flex-center;
+      max-width: 260px;
+      align-self: flex-end;
+
+      @include tablet {
+        max-width: 569px;
+      }
+      @include desktop {
+        max-width: 698px;
+        margin-left: 40px;
+      }
+    }
+  }
+
+  .about {
+    background: $color-light-xl;
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 42px;
+      padding-bottom: 42px;
+      gap: 42px;
+      @include tablet {
+        gap: 80px;
+        padding: 80px 0 100px;
+      }
+      @include desktop {
+        gap: 120px;
+        flex-direction: row-reverse;
+        justify-content: center;
+      }
+    }
+
+    padding: 0 15px;
+    &-text {
+      max-width: 370px;
 
       h3 {
         text-align: center;
-        max-height: 90px;
+        margin-bottom: 25px;
       }
-      .pets-slider {
-        margin-top: 60px;
-        position: relative;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .cards {
-          gap: 90px;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
+      p + p {
+        margin-top: 22px;
+      }
+      p {
+        text-align: justify;
+      }
+      @include tablet {
+        h3,
+        p {
+          text-align: left;
         }
+        max-width: 430px;
+      }
+    }
 
-        .right {
-          transform: rotate(180deg);
-        }
-      }
-      .btn-primary-large {
-        margin-top: 60px;
+    &-img {
+      @include flex-center;
+      width: 260px;
+      @include tablet {
+        width: 300px;
       }
     }
   }
-
-  .help {
-    background-color: $color-light-xl;
-    &-inner {
+  .pets {
+    background-color: $color-light-l;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @include tablet {
       padding-top: 80px;
       padding-bottom: 100px;
+    }
+    @include desktop {
+      padding-bottom: 100px;
+    }
+    .container {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
-    .help-list {
-      margin-top: 60px;
+    h3 {
+      text-align: center;
+    }
+    &-slider {
+      position: relative;
+      .cards {
+        margin-top: 42px;
+        display: flex;
+        @include tablet {
+          margin-top: 60px;
+          gap: 30px;
+        }
+        @include desktop {
+          margin-top: 60px;
+          gap: 90px;
+        }
+      }
+      .card {
+        &:nth-child(n + 2) {
+          display: none;
+        }
+        @include tablet {
+          &:nth-child(n) {
+            display: flex;
+          }
+          &:nth-child(n + 3) {
+            display: none;
+          }
+        }
+        @include desktop {
+          &:nth-child(n) {
+            display: flex;
+          }
+        }
+      }
+    }
+    .buttons {
+      margin-top: 20px;
+      top: 50%;
       display: flex;
+      gap: 80px;
       justify-content: center;
-      align-items: center;
-      gap: 55px 120px;
-      flex-wrap: wrap;
 
+      @include tablet {
+        position: absolute;
+        top: 47%;
+        left: -67px;
+        gap: unset;
+        justify-content: space-between;
+        width: 708px;
+      }
+      @include desktop {
+        width: 1200px;
+        left: -105px;
+      }
+    }
+
+    a {
+      margin-top: 40px;
+      @include tablet {
+        margin-top: 60px;
+      }
+    }
+  }
+  .help {
+    background-color: $color-light-xl;
+    .container {
+      padding-top: 42px;
+      padding-bottom: 42px;
+      text-align: center;
+      @include tablet {
+        padding-top: 80px;
+        padding-bottom: 100px;
+      }
+      h4 {
+        font-size: 15px;
+        line-height: 110%;
+        @include tablet {
+          font-size: 20px;
+          line-height: 115%;
+        }
+      }
+    }
+    &-list {
+      margin-top: 42px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      @include tablet {
+        gap: 55px;
+        margin-top: 60px;
+        padding: 0 40px;
+      }
+      @include desktop {
+        padding: 0;
+        justify-content: center;
+        gap: 55px 120px;
+      }
       li {
+        img {
+          width: 50px;
+          margin-bottom: 20px;
+          @include tablet {
+            width: 60px;
+            margin-bottom: 30px;
+          }
+        }
+        width: 130px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        h4 {
-          margin-top: 30px;
+        @include tablet {
+          width: 170px;
         }
+        @include desktop {
+          width: unset;
+        }
+      }
+    }
+  }
+  .donation {
+    background-color: $color-light-l;
+    .container {
+      padding-top: 48px;
+      padding-bottom: 38px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include tablet {
+        padding-top: 80px;
+        padding-bottom: 93px;
+      }
+      @include desktop {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        padding-bottom: 100px;
+      }
+    }
+    &-text {
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 10px;
+      @include tablet {
+        padding: 0;
+        align-items: initial;
+      }
+      & > * + * {
+        margin-top: 20px;
       }
     }
 
     h3 {
+      max-width: 300px;
       text-align: center;
-      max-height: 90px;
-    }
-  }
-
-  .donation {
-    background-color: $color-light-l;
-
-    &-inner {
-      padding-top: 80px;
-      padding-bottom: 100px;
-      @include flex-center;
-      gap: 30px;
-    }
-    img {
-      max-width: 100%;
-      object-fit: cover;
-    }
-    &-text {
-      max-width: 380px;
-      h3 {
-        max-width: 300px;
+      @include tablet {
+        text-align: left;
       }
-
-      a {
-        img {
-          margin: 0 15px;
-        }
-        cursor: pointer;
-        display: flex;
-        align-items: center;
+    }
+    a {
+      img {
+        margin: 0 15px;
+      }
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      width: 281px;
+      height: 43px;
+      background: $color-primary;
+      border-radius: 9px;
+      @include tablet {
         width: 349px;
-        height: 43px;
-        background: $color-primary;
-        border-radius: 9px;
-        &:hover {
-          background-color: $color-primary-light;
+      }
+      &:hover {
+        background-color: $color-primary-light;
+      }
+      h4 {
+        font-size: 15px;
+        @include tablet {
+          font-size: 20px;
         }
       }
-      & > * + * {
-        margin-top: 20px;
+    }
+    &-img {
+      margin-top: 40px;
+      width: 260px;
+      @include tablet {
+        width: 505px;
+        margin-top: 60px;
+      }
+      @include desktop {
+        margin-top: 0;
+        order: -1;
       }
     }
   }

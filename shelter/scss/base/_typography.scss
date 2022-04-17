@@ -1,33 +1,44 @@
 @use "../abstracts" as *;
 
-.btn {
-  font-family: "Georgia";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 130%;
+h1 {
+  @extend %headers;
+  font-size: 32px;
+  line-height: 110%;
   letter-spacing: 0.06em;
-  color: $color-dark-3xl;
+  margin: 0;
 }
 
-.btn-round {
-  font-size: 20px;
-  line-height: 115px;
-  letter-spacing: 0.06em;
+.logo-subtitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
 }
 
 h2 {
   @extend %headers;
-  font-size: 44px;
+  font-size: 25px;
   line-height: 130%;
   color: $color-light-xl;
+  letter-spacing: 0.06em;
+
+  @include tablet {
+    font-size: 44px;
+    letter-spacing: 0;
+  }
 }
 
 h3 {
   @extend %headers;
-  font-size: 35px;
+  font-size: 25px;
   line-height: 130%;
   letter-spacing: 0.06em;
+
+  @include tablet {
+    font-size: 35px;
+  }
 }
 
 h4 {
@@ -40,12 +51,25 @@ h4 {
 h5 {
   @extend %headers;
   font-size: 15px;
-  line-height: 110%;
-  letter-spacing: 0.06em;
+  line-height: 160%;
+  @include tablet {
+    line-height: 110%;
+    letter-spacing: 0.06em;
+  }
 }
 
-.p-l,
-header a {
+.button {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: $color-dark-3xl;
+}
+
+.para-l,
+nav a {
   font-family: "Arial";
   font-style: normal;
   font-weight: 400;
@@ -54,31 +78,23 @@ header a {
   color: $color-dark-xl;
 }
 
-.p-s {
+.para-s {
   font-family: "Arial";
   font-style: italic;
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
   color: $color-dark-m;
+  text-align: justify;
+  @include tablet {
+    text-align: left;
+  }
 }
 
-.logo {
-  .title {
-    margin: 0;
-    font-family: "Georgia";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 110%;
-    letter-spacing: 0.06em;
-  }
-  .subtitle {
-    font-family: "Arial";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 15px;
-    letter-spacing: 0.1em;
-  }
+.mobile-nav a {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 160%;
 }

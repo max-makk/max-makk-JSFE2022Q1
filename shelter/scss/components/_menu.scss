@@ -1,0 +1,108 @@
+@use "../abstracts" as *;
+
+.hamburger {
+  margin-right: 40px;
+  z-index: 100;
+  position: absolute;
+  top: 48px;
+  right: 14px;
+  display: block;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.hamburger::before {
+  transition: 0.4s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: $color-primary;
+  box-shadow: 0 10px 0 0 $color-primary, 0 20px 0 0 $color-primary;
+  .pets-body & {
+    background: $color-dark-3xl;
+    box-shadow: 0 10px 0 0 $color-dark-3xl, 0 20px 0 0 $color-dark-3xl;
+  }
+}
+
+.hamburger.is-active {
+  position: fixed;
+}
+
+.hamburger.is-active:before {
+  transform: rotate(90deg);
+  transform-origin: 16px 11px;
+  transition: 0.4s;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -200%;
+  width: 320px;
+  min-height: 100vh;
+  display: block;
+  z-index: 98;
+  background-color: $color-dark-3xl;
+  padding-top: 120px;
+  transition: 0.4s;
+  .pets-body & {
+    background-color: $color-light-xl;
+  }
+}
+
+.mobile-nav.is-active {
+  right: 0;
+}
+
+.mobile-nav ul {
+  padding-top: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    margin-left: 0;
+    margin-bottom: 40px;
+  }
+}
+
+.mobile-nav a {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .mobile-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(41, 41, 41, 0.6);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.menu-overlay.is-active {
+  display: block;
+}

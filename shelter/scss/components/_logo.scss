@@ -1,0 +1,34 @@
+@use "../abstracts" as *;
+
+.logo {
+  width: 184px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+
+  &-dark {
+    .logo-title {
+      color: $color-primary;
+    }
+    .logo-subtitle {
+      color: $color-light-xl;
+    }
+  }
+  &-light {
+    .logo-title {
+      color: $color-dark-l;
+    }
+    .logo-subtitle {
+      color: $color-dark-3xl;
+    }
+  }
+
+  .mobile-nav & {
+    position: absolute;
+    top: 30px;
+    right: 126px;
+  }
+}

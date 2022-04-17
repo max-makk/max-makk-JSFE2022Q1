@@ -3,122 +3,136 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/style.css" />
     <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css" />
   </head>
   <body class="pets-body">
     <header class="header">
       <div class="container">
-        <div class="header-inner">
-          <a href="../../index.html" class="logo">
-            <h1 class="title">Cozy House</h1>
-            <div class="subtitle">Shelter for pets in Boston</div>
-          </a>
-          <nav class="nav">
-            <ul>
-              <li><a href="../../index.html">About the shelter</a></li>
-              <li><a class="active" href="index.html">Our pets</a></li>
-              <li><a href="../../#help">Help the shelter</a></li>
-              <li><a href="#contacts">Contacts</a></li>
-            </ul>
-          </nav>
-        </div>
+        <a href="../../index.html" class="logo logo-light">
+          <h1 class="logo-title">Cozy House</h1>
+          <div class="logo-subtitle">Shelter for pets in Boston</div>
+        </a>
+        <nav class="nav">
+          <ul>
+            <li><a href="../../index.html">About the shelter</a></li>
+            <li><a href="index.html" class="active">Our pets</a></li>
+            <li><a href="../../#help">Help the shelter</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger"></button>
       </div>
+      <div class="menu-overlay"></div>
+      <nav class="mobile-nav">
+        <a href="../../index.html" class="logo logo-light">
+          <h1 class="logo-title">Cozy House</h1>
+          <div class="logo-subtitle">Shelter for pets in Boston</div>
+        </a>
+        <ul>
+          <li><a href="../../index.html">About the shelter</a></li>
+          <li><a href="index.html" class="active">Our pets</a></li>
+          <li><a href="../../#help">Help the shelter</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
+      </nav>
     </header>
     <section class="pets">
       <div class="container">
-        <div class="pets-inner">
-          <h3>Our friends who <br />are looking for a house</h3>
-          <div class="cards">
-            <div class="card">
-              <img src="../../assets/images/katrine.png" alt="katrine" />
-              <h4>Katrine</h4>
-              <a class="btn btn-small" href="#">Learn more</a>
-            </div>
-            <div class="card">
-              <img src="../../assets/images/jennifer.png" alt="jennifer" />
-              <h4>Jennifer</h4>
-              <a class="btn btn-small" href="#">Learn more</a>
-            </div>
-            <div class="card">
-              <img src="../../assets/images/woody.png" alt="woody" />
-              <h4>Woody</h4>
-              <a class="btn btn-small" href="#">Learn more</a>
-            </div>
-            <div class="card">
-              <img src="../../assets/images/sophia.png" alt="sophia" />
-              <h4>Sophia</h4>
-              <a class="btn btn-small" href="#">Learn more</a>
-            </div>
-            <div class="card">
-              <img src="../../assets/images/timmy.png" alt="timmy" />
-              <h4>Timmy</h4>
-              <a class="btn btn-small" href="#">Learn more</a>
-            </div>
-            <div class="card">
-              <img src="../../assets/images/charly.png" alt="charly" />
-              <h4>Charly</h4>
-              <a class="btn btn-small" href="#">Learn more</a>
-            </div>
-            <div class="card">
-              <img src="../../assets/images/scarlett.png" alt="scarlett" />
-              <h4>Scarlett</h4>
-              <a class="btn btn-small" href="#">Learn more</a>
-            </div>
-            <div class="card">
-              <img src="../../assets/images/freddie.png" alt="freddie" />
-              <h4>Freddit</h4>
-              <a class="btn btn-small" href="#">Learn more</a>
-            </div>
+        <h3>
+          Our friends who<br />
+          are looking for a house
+        </h3>
+        <div class="cards">
+          <div class="card">
+            <img src="../../assets/images/katrine.png" alt="katrine" />
+            <h4>Katrine</h4>
+            <button class="button button-secondary">Learn more</button>
           </div>
-          <ul class="page-list">
-            <li><button class="btn btn-round inactive">&lt;&lt;</button></li>
-            <li><button class="btn btn-round inactive">&lt;</button></li>
-            <li><button class="btn btn-round btn-page">1</button></li>
-            <li><button class="btn btn-round">&gt;</button></li>
-            <li><button class="btn btn-round">&gt;&gt;</button></li>
-          </ul>
+          <div class="card">
+            <img src="../../assets/images/jennifer.png" alt="jennifer" />
+            <h4>Jennifer</h4>
+            <button class="button button-secondary">Learn more</button>
+          </div>
+          <div class="card">
+            <img src="../../assets/images/woody.png" alt="woody" />
+            <h4>Woody</h4>
+            <button class="button button-secondary">Learn more</button>
+          </div>
+          <div class="card">
+            <img src="../../assets/images/sophia.png" alt="sophia" />
+            <h4>Sophia</h4>
+            <button class="button button-secondary">Learn more</button>
+          </div>
+          <div class="card">
+            <img src="../../assets/images/timmy.png" alt="timmy" />
+            <h4>Timmy</h4>
+            <button class="button button-secondary">Learn more</button>
+          </div>
+          <div class="card">
+            <img src="../../assets/images/charly.png" alt="charly" />
+            <h4>Charly</h4>
+            <button class="button button-secondary">Learn more</button>
+          </div>
+          <div class="card">
+            <img src="../../assets/images/scarlett.png" alt="scarlett" />
+            <h4>Scarlett</h4>
+            <button class="button button-secondary">Learn more</button>
+          </div>
+          <div class="card">
+            <img src="../../assets/images/freddie.png" alt="freddie" />
+            <h4>Freddit</h4>
+            <button class="button button-secondary">Learn more</button>
+          </div>
+        </div>
+        <div class="pagination">
+          <button class="button button-round inactive">&lt;&lt;</button>
+          <button class="button button-round inactive">&lt;</button>
+          <button class="button button-round page">1</button>
+          <button class="button button-round">&gt;</button>
+          <button class="button button-round">&gt;&gt;</button>
         </div>
       </div>
     </section>
     <footer class="footer" id="contacts">
       <div class="container">
-        <div class="footer-inner">
-          <div class="contacts-list">
-            <h3>For questions and suggestions</h3>
-            <address>
-              <a href="mailto:email@shelter.com" target="_blank">
-                <img src="../../assets/icons/icon-email.svg" alt="email" />
-                <h4>email@shelter.com</h4></a
-              >
-              <a href="tel:+13 674 567 75 54" target="_blank">
-                <img src="../../assets/icons/icon-phone.svg" alt="phone" />
-                <h4>+13 674 567 75 54</h4></a
-              >
-            </address>
-          </div>
-          <div class="locations-list">
-            <h3>We are waiting for your visit</h3>
-            <address>
-              <a
-                href="https://www.google.com/maps/place/Niger/@17.5460425,3.5837797,6z/data=!3m1!4b1!4m5!3m4!1s0x1199ec7ac6a1af5d:0xc933920a158e24d4!8m2!3d17.4345106!4d9.3878174"
-                target="_blank"
-              >
-                <img src="../../assets/icons/icon-marker.svg" alt="marker" />
-                <h4>1 Central Street, Boston (entrance from the store)</h4></a
-              >
-              <a
-                href="https://www.google.com/maps/place/Niger/@17.5460425,3.5837797,6z/data=!3m1!4b1!4m5!3m4!1s0x1199ec7ac6a1af5d:0xc933920a158e24d4!8m2!3d17.4345106!4d9.3878174"
-                target="_blank"
-              >
-                <img src="../../assets/icons/icon-marker.svg" alt="marker" />
-                <h4>18 South Park, London</h4>
-              </a>
-            </address>
-          </div>
+        <div class="contacts-list">
+          <h3>For questions and suggestions</h3>
+          <address>
+            <a href="mailto:email@shelter.com" target="_blank">
+              <img src="../../assets/icons/icon-email.svg" alt="email" />
+              <h4>email@shelter.com</h4></a
+            >
+            <a href="tel:+13 674 567 75 54" target="_blank">
+              <img src="../../assets/icons/icon-phone.svg" alt="phone" />
+              <h4>+13 674 567 75 54</h4></a
+            >
+          </address>
+        </div>
+        <div class="locations-list">
+          <h3>We are waiting for your visit</h3>
+          <address>
+            <a
+              href="https://www.google.com/maps/place/Niger/@17.5460425,3.5837797,6z/data=!3m1!4b1!4m5!3m4!1s0x1199ec7ac6a1af5d:0xc933920a158e24d4!8m2!3d17.4345106!4d9.3878174"
+              target="_blank"
+            >
+              <img src="../../assets/icons/icon-marker.svg" alt="marker" />
+              <h4>1 Central Street, Boston (entrance from the store)</h4></a
+            >
+            <a
+              href="https://www.google.com/maps/place/Niger/@17.5460425,3.5837797,6z/data=!3m1!4b1!4m5!3m4!1s0x1199ec7ac6a1af5d:0xc933920a158e24d4!8m2!3d17.4345106!4d9.3878174"
+              target="_blank"
+            >
+              <img src="../../assets/icons/icon-marker.svg" alt="marker" />
+              <h4>18 South Park, London</h4>
+            </a>
+          </address>
+        </div>
+        <div class="footer-img">
           <img src="../../assets/images/footer-puppy.png" alt="puppy" />
         </div>
       </div>
     </footer>
+    <script src="../main/script.js"></script>
   </body>
 </html>
