@@ -159,36 +159,33 @@
     h3 {
       text-align: center;
     }
+
     &-slider {
       position: relative;
-      .cards {
-        margin-top: 42px;
-        display: flex;
+      .cards-wrapper {
+        overflow: hidden;
+        width: 270px;
         @include tablet {
+          width: 570px;
+        }
+        @include desktop {
+          width: 990px;
+        }
+      }
+      .cards {
+        position: relative;
+        display: flex;
+        margin-top: 42px;
+        left: -270px;
+        @include tablet {
+          left: -600px;
           margin-top: 60px;
           gap: 30px;
         }
         @include desktop {
+          left: -1080px;
           margin-top: 60px;
           gap: 90px;
-        }
-      }
-      .card {
-        &:nth-child(n + 2) {
-          display: none;
-        }
-        @include tablet {
-          &:nth-child(n) {
-            display: flex;
-          }
-          &:nth-child(n + 3) {
-            display: none;
-          }
-        }
-        @include desktop {
-          &:nth-child(n) {
-            display: flex;
-          }
         }
       }
     }
@@ -202,7 +199,7 @@
       @include tablet {
         position: absolute;
         top: 47%;
-        left: -67px;
+        left: -70px;
         gap: unset;
         justify-content: space-between;
         width: 708px;
@@ -355,4 +352,78 @@
       }
     }
   }
+}
+
+@keyframes move-right {
+  from {
+    left: -270px;
+  }
+  to {
+    left: -540px;
+  }
+}
+
+@keyframes move-right-m {
+  from {
+    left: -600px;
+  }
+  to {
+    left: -1200px;
+  }
+}
+@keyframes move-right-l {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+
+.transition-right {
+  animation-name: move-right;
+  @include tablet {
+    animation-name: move-right-m;
+  }
+  @include desktop {
+    animation-name: move-right-l;
+  }
+  animation-duration: 5s;
+}
+
+@keyframes move-left {
+  from {
+    left: -270px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes move-left-m {
+  from {
+    left: -600px;
+  }
+  to {
+    left: 0px;
+  }
+}
+@keyframes move-left-l {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+.transition-left {
+  animation-name: move-left;
+  @include tablet {
+    animation-name: move-left-m;
+  }
+  @include desktop {
+    animation-name: move-left-l;
+  }
+  animation-duration: 5s;
 }

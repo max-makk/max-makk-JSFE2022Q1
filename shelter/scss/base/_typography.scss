@@ -98,3 +98,48 @@ nav a {
   font-size: 32px;
   line-height: 160%;
 }
+
+.modal {
+  h3 {
+    font-family: "Georgia";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: #000000;
+  }
+  h4 {
+    font-family: "Georgia";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #000000;
+  }
+  p {
+    font-family: "Georgia";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: #000000;
+    @include desktop {
+      font-size: 15px;
+    }
+  }
+  li {
+    span {
+      font-weight: bold;
+    }
+    font-family: "Georgia";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #000000;
+  }
+}

@@ -52,7 +52,8 @@
   z-index: 98;
   background-color: $color-dark-3xl;
   padding-top: 120px;
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
+  transition: 0.9s ease-in-out;
   .pets-body & {
     background-color: $color-light-xl;
   }
@@ -60,6 +61,7 @@
 
 .mobile-nav.is-active {
   right: 0;
+  transition: 0.9s ease-in-out;
 }
 
 .mobile-nav ul {
@@ -105,4 +107,12 @@
 
 .menu-overlay.is-active {
   display: block;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+.scroll {
+  overflow: scroll;
 }

@@ -29,6 +29,7 @@
           <h1 class="logo-title">Cozy House</h1>
           <div class="logo-subtitle">Shelter for pets in Boston</div>
         </a>
+
         <ul>
           <li><a href="index.html" class="active">About the shelter</a></li>
           <li><a href="pages/pets/index.html">Our pets</a></li>
@@ -88,22 +89,8 @@
           are looking for a house
         </h3>
         <div class="pets-slider">
-          <div class="cards">
-            <div class="card">
-              <img src="assets/images/katrine.png" alt="katrine" />
-              <h4>Katrine</h4>
-              <button class="button button-secondary">Learn more</button>
-            </div>
-            <div class="card">
-              <img src="assets/images/jennifer.png" alt="jennifer" />
-              <h4>Jennifer</h4>
-              <button class="button button-secondary">Learn more</button>
-            </div>
-            <div class="card">
-              <img src="assets/images/woody.png" alt="woody" />
-              <h4>Woody</h4>
-              <button class="button button-secondary">Learn more</button>
-            </div>
+          <div class="cards-wrapper">
+            <div class="cards"></div>
           </div>
 
           <div class="buttons">
@@ -121,6 +108,24 @@
         >
       </div>
     </section>
+    <div class="modal">
+      <div class="modal-img">
+        <img src="" alt="" />
+      </div>
+      <div class="modal-info">
+        <button class="button button-round close-modal">&times;</button>
+        <h3 class="modal-name"></h3>
+        <h4 class="modal-breed"></h4>
+        <p class="modal-descr"></p>
+        <ul class="modal-list">
+          <li><span>Age:</span></li>
+          <li><span>Inoculations:</span></li>
+          <li><span>Diseases:</span></li>
+          <li><span>Parasites:</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="modal-overlay"></div>
     <section class="help" id="help">
       <div class="container">
         <h3>

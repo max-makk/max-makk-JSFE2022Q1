@@ -3,6 +3,7 @@
 
 .pets-body {
   .header {
+    z-index: 3;
     position: fixed;
     top: 0;
     width: 100%;
@@ -57,25 +58,6 @@
         margin-top: 45px;
         padding: 15px 0;
         gap: 30px 40px;
-      }
-    }
-
-    .card {
-      &:nth-child(n + 4) {
-        display: none;
-      }
-      @include tablet {
-        &:nth-child(n) {
-          display: flex;
-        }
-        &:nth-child(n + 7) {
-          display: none;
-        }
-      }
-      @include desktop {
-        &:nth-child(n) {
-          display: flex;
-        }
       }
     }
 
