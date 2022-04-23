@@ -38,6 +38,9 @@ function menuToggler() {
 // **********************************************************
 
 let screen = "";
+let current = 0;
+let maxPages = 0;
+let currentPage = 1;
 let size = 0;
 let pets = [];
 let randomPets = [];
@@ -69,6 +72,7 @@ function checkScreenSize() {
   }
 }
 checkScreenSize();
+current = size;
 
 async function getPets() {
   try {
@@ -87,7 +91,6 @@ async function getPets() {
       for (let i = 0; i < 8; i++) {
         randomPets.push(...shuffle(arr.slice(0, 6)));
         arr.splice(0, 6);
-        console.log(arr);
       }
     } else if (screen === "mobile") {
       let arr = Array(6).fill(pets);
@@ -98,6 +101,7 @@ async function getPets() {
       }
     }
 
+    maxPages = Math.floor(randomPets.length / size);
     if (screen === "desktop") {
       populatePets(0, 8);
     } else if (screen === "tablet") {
@@ -149,44 +153,69 @@ function populatePets(s, e) {
   }
 }
 
-let min = 0;
-let max = 48;
-let current = size;
-
 function toFirstPage() {
-  console.log("hi");
+  currentPage = 1;
+  current = size;
+  populatePets(0, size);
+  displayPage();
+  btnLastPage.classList.remove("inactive");
+  btnNextPage.classList.remove("inactive");
+  btnFirstPage.classList.add("inactive");
+  btnPrevPage.classList.add("inactive");
 }
 
 function toLastPage() {
-  console.log("hi");
+  currentPage = maxPages;
+  current = randomPets.length;
+  populatePets(randomPets.length - size, randomPets.length);
+  displayPage();
+  btnLastPage.classList.add("inactive");
+  btnNextPage.classList.add("inactive");
+  btnFirstPage.classList.remove("inactive");
+  btnPrevPage.classList.remove("inactive");
 }
 
 function nextPage() {
+  if (currentPage === maxPages) {
+    return;
+  } else if (currentPage === maxPages - 1) {
+  btnLastPage.classList.add("inactive");
+  btnNextPage.classList.add("inactive");
+  }
+  currentPage += 1;
   populatePets(current, current + size);
   current = current + size;
+  displayPage();
+  btnPrevPage.classList.remove("inactive");
+  btnFirstPage.classList.remove("inactive");
 }
 
 function prevPage() {
+  if (currentPage === 1) {
+
+    return;
+  } else if (currentPage - 1 === 1) {
+ btnFirstPage.classList.add("inactive");
+  btnPrevPage.classList.add("inactive");
+
+  }
+  currentPage -= 1;
   populatePets(current - size - size, current - size);
   current = current - size;
-  console.log(current);
+  displayPage();
+  btnNextPage.classList.remove("inactive");
+  btnLastPage.classList.remove("inactive");
 }
 
-tablet.addEventListener("change", (e) => {
-  checkScreenSize();
-  console.log(screen);
-});
-desktop.addEventListener("change", (e) => {
-  checkScreenSize();
-  console.log(screen);
-});
+function displayPage() {
+  pageNumber.textContent = currentPage;
+}
 
 // ***************************************** show modal
 
 function showInfo(e) {
   const name = e.target.closest(".card").getAttribute("data-name");
   const pet = pets.find((e) => e.name === name);
-  console.log(pet);
   const container = document.querySelector(".modal");
   container.innerHTML = "";
 
