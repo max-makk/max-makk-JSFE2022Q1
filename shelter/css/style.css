@@ -1847,6 +1847,7 @@ nav a {
 }
 @media (min-width: 768px) {
   .pets-body .pets .cards {
+    max-width: 708px;
     flex-direction: row;
     padding-top: 30px;
     gap: 30px 40px;
@@ -1854,6 +1855,7 @@ nav a {
 }
 @media (min-width: 1280px) {
   .pets-body .pets .cards {
+    max-width: 100%;
     margin-top: 45px;
     padding: 15px 0;
     gap: 30px 40px;

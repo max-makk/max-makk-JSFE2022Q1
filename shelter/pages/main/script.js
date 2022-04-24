@@ -40,11 +40,11 @@ function menuToggler() {
 let screen = "";
 let pets = [];
 let randomPets = [];
-let restCards = []
-let centerCards = []
-const itemLeft = document.querySelector('.item-left')
-const itemCenter = document.querySelector('.item-center')
-const itemRight = document.querySelector('.item-right')
+let restCards = [];
+let centerCards = [];
+const itemLeft = document.querySelector(".item-left");
+const itemCenter = document.querySelector(".item-center");
+const itemRight = document.querySelector(".item-right");
 
 async function getPets() {
   try {
@@ -54,7 +54,7 @@ async function getPets() {
     const getData = await response.json();
     pets = getData;
     randomPets.push(...shuffle(pets));
-    initCards()
+    initCards();
   } catch (e) {
     alert(e);
   }
@@ -86,10 +86,10 @@ cards.addEventListener("animationend", (animationEvent) => {
     animationEvent.animationName === "move-left-m" ||
     animationEvent.animationName === "move-left-l"
   ) {
-    regroupCards()
+    regroupCards();
     cards.classList.remove("transition-left");
   } else {
-    regroupCards()
+    regroupCards();
     cards.classList.remove("transition-right");
   }
 
@@ -111,85 +111,61 @@ function shuffle(array) {
 }
 
 function regroupCards() {
-  itemCenter.innerHTML = ''
- for(let i = 0; i < 3; i++) {
-    itemCenter.append(createCard(restCards[i]))
+  itemCenter.innerHTML = "";
+  for (let i = 0; i < 3; i++) {
+    itemCenter.append(createCard(restCards[i]));
   }
-  itemLeft.innerHTML = ''
-  itemRight.innerHTML = ''
-  let temp = centerCards
-  centerCards = restCards.splice(0,3)
-  restCards.push(...temp)
-  restCards.push(...shuffle(restCards))
-  restCards.splice(0,5)
- for(let i = 0; i < 3; i++) {
-    itemRight.append(createCard(restCards[i]))
-    itemLeft.append(createCard(restCards[i]))
+  itemLeft.innerHTML = "";
+  itemRight.innerHTML = "";
+  let temp = centerCards;
+  centerCards = restCards.splice(0, 3);
+  restCards.push(...temp);
+  restCards.push(...shuffle(restCards));
+  restCards.splice(0, 5);
+  for (let i = 0; i < 3; i++) {
+    itemRight.append(createCard(restCards[i]));
+    itemLeft.append(createCard(restCards[i]));
   }
 }
 
 function initCards() {
-  centerCards.push(...randomPets.slice(0,3))
-  restCards.push(...randomPets.slice(3))
-  for(let i = 0; i < 3; i++) {
-    itemCenter.append(createCard(centerCards[i]))
+  centerCards.push(...randomPets.slice(0, 3));
+  restCards.push(...randomPets.slice(3));
+  for (let i = 0; i < 3; i++) {
+    itemCenter.append(createCard(centerCards[i]));
   }
-  for(let i = 0; i < 3; i++) {
-    itemLeft.append(createCard(restCards[i]))
-    itemRight.append(createCard(restCards[i]))
+  for (let i = 0; i < 3; i++) {
+    itemLeft.append(createCard(restCards[i]));
+    itemRight.append(createCard(restCards[i]));
   }
 }
 
 function createCard(item) {
-    const card = document.createElement("div");
-    card.setAttribute("data-name", item.name);
-    card.classList.add("card");
-    card.addEventListener("click", (e) => showInfo(e));
-    const img = document.createElement("img");
-    let pathImg = item.img;
-    img.setAttribute("src", pathImg.slice(6));
-    img.setAttribute("alt", item.name);
-    const petName = document.createElement("h4");
-    petName.textContent = item.name;
-    const btn = document.createElement("button");
-    btn.classList.add("button");
-    btn.classList.add("button-secondary");
-    btn.textContent = "Learn more";
-    card.append(img);
-    card.append(petName);
-    card.append(btn);
-  return card
+  const card = document.createElement("div");
+  card.setAttribute("data-name", item.name);
+  card.classList.add("card");
+  card.addEventListener("click", (e) => showInfo(e));
+  const img = document.createElement("img");
+  let pathImg = item.img;
+  img.setAttribute("src", pathImg.slice(6));
+  img.setAttribute("alt", item.name);
+  const petName = document.createElement("h4");
+  petName.textContent = item.name;
+  const btn = document.createElement("button");
+  btn.classList.add("button");
+  btn.classList.add("button-secondary");
+  btn.textContent = "Learn more";
+  card.append(img);
+  card.append(petName);
+  card.append(btn);
+  return card;
 }
-
-let tablet = window.matchMedia("(min-width: 768px)");
-let desktop = window.matchMedia("(min-width: 1280px)");
-
-function checkScreenSize() {
-  if (desktop.matches) {
-    screen = "desktop";
-  } else if (tablet.matches) {
-    screen = "tablet";
-  } else {
-    screen = "mobile";
-  }
-}
-checkScreenSize();
-
-tablet.addEventListener("change", (e) => {
-  checkScreenSize();
-  console.log(screen);
-});
-desktop.addEventListener("change", (e) => {
-  checkScreenSize();
-  console.log(screen);
-});
 
 // ********************************************* show modal
 
 function showInfo(e) {
   const name = e.target.closest(".card").getAttribute("data-name");
   const pet = pets.find((e) => e.name === name);
-  console.log(pet);
   const container = document.querySelector(".modal");
   container.innerHTML = "";
 

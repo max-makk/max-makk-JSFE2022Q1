@@ -179,8 +179,8 @@ function nextPage() {
   if (currentPage === maxPages) {
     return;
   } else if (currentPage === maxPages - 1) {
-  btnLastPage.classList.add("inactive");
-  btnNextPage.classList.add("inactive");
+    btnLastPage.classList.add("inactive");
+    btnNextPage.classList.add("inactive");
   }
   currentPage += 1;
   populatePets(current, current + size);
@@ -192,12 +192,10 @@ function nextPage() {
 
 function prevPage() {
   if (currentPage === 1) {
-
     return;
   } else if (currentPage - 1 === 1) {
- btnFirstPage.classList.add("inactive");
-  btnPrevPage.classList.add("inactive");
-
+    btnFirstPage.classList.add("inactive");
+    btnPrevPage.classList.add("inactive");
   }
   currentPage -= 1;
   populatePets(current - size - size, current - size);
@@ -211,14 +209,28 @@ function displayPage() {
   pageNumber.textContent = currentPage;
 }
 
-tablet.addEventListener('change', (e) =>  {
-  checkScreenSize()
-  console.log(screen)
-})
-desktop.addEventListener('change', (e) =>  {
-  checkScreenSize()
-  console.log(screen)
-})
+tablet.addEventListener("change", () => {
+  checkScreenSize();
+  refresh();
+  current = size;
+});
+desktop.addEventListener("change", () => {
+  checkScreenSize();
+  refresh();
+  current = size;
+});
+
+function refresh() {
+  currentPage = 1;
+  pets = [];
+  randomPets = [];
+  getPets();
+  displayPage();
+  btnLastPage.classList.remove("inactive");
+  btnNextPage.classList.remove("inactive");
+  btnFirstPage.classList.add("inactive");
+  btnPrevPage.classList.add("inactive");
+}
 
 // ***************************************** show modal
 
