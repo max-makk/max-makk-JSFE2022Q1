@@ -1463,6 +1463,25 @@ nav a {
 .main-body .pets h3 {
   text-align: center;
 }
+.main-body .pets .item-center,
+.main-body .pets .item-left,
+.main-body .pets .item-right {
+  display: flex;
+}
+@media (min-width: 768px) {
+  .main-body .pets .item-center,
+.main-body .pets .item-left,
+.main-body .pets .item-right {
+    gap: 30px;
+  }
+}
+@media (min-width: 1280px) {
+  .main-body .pets .item-center,
+.main-body .pets .item-left,
+.main-body .pets .item-right {
+    gap: 90px;
+  }
+}
 .main-body .pets-slider {
   position: relative;
 }
@@ -1484,11 +1503,11 @@ nav a {
   position: relative;
   display: flex;
   margin-top: 42px;
-  left: -270px;
+  left: -810px;
 }
 @media (min-width: 768px) {
   .main-body .pets-slider .cards {
-    left: -600px;
+    left: -900px;
     margin-top: 60px;
     gap: 30px;
   }
@@ -1698,18 +1717,18 @@ nav a {
 
 @keyframes move-right {
   from {
-    left: -270px;
+    left: -810px;
   }
   to {
-    left: -540px;
+    left: -1620px;
   }
 }
 @keyframes move-right-m {
   from {
-    left: -600px;
+    left: -900px;
   }
   to {
-    left: -1200px;
+    left: -1800px;
   }
 }
 @keyframes move-right-l {
@@ -1722,7 +1741,7 @@ nav a {
 }
 .transition-right {
   animation-name: move-right;
-  animation-duration: 5s;
+  animation-duration: 1s;
 }
 @media (min-width: 768px) {
   .transition-right {
@@ -1737,7 +1756,7 @@ nav a {
 
 @keyframes move-left {
   from {
-    left: -270px;
+    left: -810px;
   }
   to {
     left: 0px;
@@ -1745,7 +1764,7 @@ nav a {
 }
 @keyframes move-left-m {
   from {
-    left: -600px;
+    left: -900px;
   }
   to {
     left: 0px;
@@ -1761,7 +1780,7 @@ nav a {
 }
 .transition-left {
   animation-name: move-left;
-  animation-duration: 5s;
+  animation-duration: 1s;
 }
 @media (min-width: 768px) {
   .transition-left {

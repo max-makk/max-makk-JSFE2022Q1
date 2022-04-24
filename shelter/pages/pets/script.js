@@ -211,6 +211,15 @@ function displayPage() {
   pageNumber.textContent = currentPage;
 }
 
+tablet.addEventListener('change', (e) =>  {
+  checkScreenSize()
+  console.log(screen)
+})
+desktop.addEventListener('change', (e) =>  {
+  checkScreenSize()
+  console.log(screen)
+})
+
 // ***************************************** show modal
 
 function showInfo(e) {

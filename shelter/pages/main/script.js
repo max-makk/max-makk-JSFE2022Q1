@@ -37,9 +37,14 @@ function menuToggler() {
 
 // *********************************************************
 
-let screen = ''
+let screen = "";
 let pets = [];
 let randomPets = [];
+let restCards = []
+let centerCards = []
+const itemLeft = document.querySelector('.item-left')
+const itemCenter = document.querySelector('.item-center')
+const itemRight = document.querySelector('.item-right')
 
 async function getPets() {
   try {
@@ -49,13 +54,11 @@ async function getPets() {
     const getData = await response.json();
     pets = getData;
     randomPets.push(...shuffle(pets));
-    randomPets.push(randomPets[0]);
-    populatePets();
+    initCards()
   } catch (e) {
     alert(e);
   }
 }
-
 getPets();
 
 const cards = document.querySelector(".cards");
@@ -78,27 +81,15 @@ SLIDER_LEFT_BTN.addEventListener("click", moveLeft);
 SLIDER_RIGHT_BTN.addEventListener("click", moveRight);
 
 cards.addEventListener("animationend", (animationEvent) => {
-  console.log("hi");
   if (
     animationEvent.animationName === "move-left" ||
     animationEvent.animationName === "move-left-m" ||
     animationEvent.animationName === "move-left-l"
   ) {
-   
-    for(let i = 0; i < 3; i++) {
-      let c = document.querySelector(".card")
-      let copy = c.cloneNode(true)
-      cards.lastChild.remove()
-      cards.prepend(copy)
-    }
+    regroupCards()
     cards.classList.remove("transition-left");
   } else {
-for(let i = 0; i < 3; i++) {
-      let c = document.querySelectorAll(".card").lastChild
-      let copy = c.cloneNode(true)
-      cards.firstChild.remove()
-      cards.append(copy)
-    }
+    regroupCards()
     cards.classList.remove("transition-right");
   }
 
@@ -119,18 +110,47 @@ function shuffle(array) {
   return array;
 }
 
-function populatePets() {
-  for (let i = 0; i < randomPets.length; i++) {
+function regroupCards() {
+  itemCenter.innerHTML = ''
+ for(let i = 0; i < 3; i++) {
+    itemCenter.append(createCard(restCards[i]))
+  }
+  itemLeft.innerHTML = ''
+  itemRight.innerHTML = ''
+  let temp = centerCards
+  centerCards = restCards.splice(0,3)
+  restCards.push(...temp)
+  restCards.push(...shuffle(restCards))
+  restCards.splice(0,5)
+ for(let i = 0; i < 3; i++) {
+    itemRight.append(createCard(restCards[i]))
+    itemLeft.append(createCard(restCards[i]))
+  }
+}
+
+function initCards() {
+  centerCards.push(...randomPets.slice(0,3))
+  restCards.push(...randomPets.slice(3))
+  for(let i = 0; i < 3; i++) {
+    itemCenter.append(createCard(centerCards[i]))
+  }
+  for(let i = 0; i < 3; i++) {
+    itemLeft.append(createCard(restCards[i]))
+    itemRight.append(createCard(restCards[i]))
+  }
+}
+
+function createCard(item) {
     const card = document.createElement("div");
-    card.setAttribute("data-name", randomPets[i].name);
+    card.setAttribute("data-name", item.name);
     card.classList.add("card");
     card.addEventListener("click", (e) => showInfo(e));
     const img = document.createElement("img");
-    let pathImg = randomPets[i].img;
+    let pathImg = item.img;
     img.setAttribute("src", pathImg.slice(6));
-    img.setAttribute("alt", randomPets[i].name);
+    img.setAttribute("alt", item.name);
     const petName = document.createElement("h4");
-    petName.textContent = randomPets[i].name;
+    petName.textContent = item.name;
     const btn = document.createElement("button");
     btn.classList.add("button");
     btn.classList.add("button-secondary");
@@ -138,34 +158,31 @@ function populatePets() {
     card.append(img);
     card.append(petName);
     card.append(btn);
-    cards.append(card);
+  return card
+}
+
+let tablet = window.matchMedia("(min-width: 768px)");
+let desktop = window.matchMedia("(min-width: 1280px)");
+
+function checkScreenSize() {
+  if (desktop.matches) {
+    screen = "desktop";
+  } else if (tablet.matches) {
+    screen = "tablet";
+  } else {
+    screen = "mobile";
   }
 }
+checkScreenSize();
 
-let tablet = window.matchMedia('(min-width: 768px)');
-let desktop = window.matchMedia('(min-width: 1280px)');
-
-
-function checkScreenSize () {
-if(desktop.matches) {
-  screen = 'desktop'
-} else if (tablet.matches) {
-  screen = 'tablet'
-} else {
-  screen = 'mobile'
-}
-}
-checkScreenSize()
-
-
-tablet.addEventListener('change', (e) =>  {
-  checkScreenSize()
-  console.log(screen)
-})
-desktop.addEventListener('change', (e) =>  {
-  checkScreenSize()
-  console.log(screen)
-})
+tablet.addEventListener("change", (e) => {
+  checkScreenSize();
+  console.log(screen);
+});
+desktop.addEventListener("change", (e) => {
+  checkScreenSize();
+  console.log(screen);
+});
 
 // ********************************************* show modal
 
@@ -195,23 +212,23 @@ function showInfo(e) {
   container.style.display = "flex";
   const btn = document.querySelector(".close-modal");
   const overlay = document.querySelector(".modal-overlay");
-  document.body.classList.add('overflow')
+  document.body.classList.add("overflow");
   overlay.classList.add("open");
-  overlay.addEventListener('mouseenter', () => {
-    document.querySelector('.close-modal').style.background = '#fddcc4'
-    document.querySelector('.close-modal').style.borderColor = '#fddcc4'
-  })
-  overlay.addEventListener('mouseleave', () => {
-    document.querySelector('.close-modal').style.background = ''
-  })
+  overlay.addEventListener("mouseenter", () => {
+    document.querySelector(".close-modal").style.background = "#fddcc4";
+    document.querySelector(".close-modal").style.borderColor = "#fddcc4";
+  });
+  overlay.addEventListener("mouseleave", () => {
+    document.querySelector(".close-modal").style.background = "";
+  });
   overlay.addEventListener("click", () => {
     overlay.classList.remove("open");
     container.style.display = "none";
-  document.body.classList.remove('overflow')
+    document.body.classList.remove("overflow");
   });
   btn.addEventListener("click", () => {
     container.style.display = "none";
     overlay.classList.remove("open");
-  document.body.classList.remove('overflow')
+    document.body.classList.remove("overflow");
   });
 }

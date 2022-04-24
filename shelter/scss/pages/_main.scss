@@ -159,6 +159,17 @@
     h3 {
       text-align: center;
     }
+    .item-center,
+    .item-left,
+    .item-right {
+      display: flex;
+      @include tablet {
+        gap: 30px;
+      }
+      @include desktop {
+        gap: 90px;
+      }
+    }
 
     &-slider {
       position: relative;
@@ -176,9 +187,9 @@
         position: relative;
         display: flex;
         margin-top: 42px;
-        left: -270px;
+        left: -810px;
         @include tablet {
-          left: -600px;
+          left: -900px;
           margin-top: 60px;
           gap: 30px;
         }
@@ -356,19 +367,19 @@
 
 @keyframes move-right {
   from {
-    left: -270px;
+    left: -810px;
   }
   to {
-    left: -540px;
+    left: -1620px;
   }
 }
 
 @keyframes move-right-m {
   from {
-    left: -600px;
+    left: -900px;
   }
   to {
-    left: -1200px;
+    left: -1800px;
   }
 }
 @keyframes move-right-l {
@@ -388,12 +399,12 @@
   @include desktop {
     animation-name: move-right-l;
   }
-  animation-duration: 5s;
+  animation-duration: 1s;
 }
 
 @keyframes move-left {
   from {
-    left: -270px;
+    left: -810px;
   }
   to {
     left: 0px;
@@ -402,7 +413,7 @@
 
 @keyframes move-left-m {
   from {
-    left: -600px;
+    left: -900px;
   }
   to {
     left: 0px;
@@ -425,5 +436,5 @@
   @include desktop {
     animation-name: move-left-l;
   }
-  animation-duration: 5s;
+  animation-duration: 1s;
 }
