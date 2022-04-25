@@ -4,6 +4,7 @@ const mobile_menu = document.querySelector(".mobile-nav");
 const contacts = document.querySelector(".mobile-nav [href='#contacts']");
 const help = document.querySelector(".mobile-nav [href*='#help']");
 const menu_overlay = document.querySelector(".menu-overlay");
+let cardIsOpen = false;
 
 contacts.addEventListener("click", function () {
   menuToggler();
@@ -25,7 +26,9 @@ window.matchMedia("(min-width: 768px)").addEventListener("change", () => {
   menu_btn.classList.remove("is-active");
   mobile_menu.classList.remove("is-active");
   menu_overlay.classList.remove("is-active");
-  body.classList.remove("overflow");
+  if (!cardIsOpen) {
+    body.classList.remove("overflow");
+  }
 });
 
 function menuToggler() {
@@ -168,6 +171,7 @@ function showInfo(e) {
   const pet = pets.find((e) => e.name === name);
   const container = document.querySelector(".modal");
   container.innerHTML = "";
+  cardIsOpen = true;
 
   const modal = `<div class="modal-img">
         <img src=${pet.img.slice(6)} alt="${pet.name}" />
@@ -201,10 +205,12 @@ function showInfo(e) {
     overlay.classList.remove("open");
     container.style.display = "none";
     document.body.classList.remove("overflow");
+    cardIsOpen = false;
   });
   btn.addEventListener("click", () => {
     container.style.display = "none";
     overlay.classList.remove("open");
+    cardIsOpen = false;
     document.body.classList.remove("overflow");
   });
 }
